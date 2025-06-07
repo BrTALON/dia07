@@ -304,7 +304,7 @@ function calcularTempo() {
   setTimeout(calcularTempo, 1000);
 }
 
-// Jogo do Amor
+// Jogo do Amor - Modificações para mobile
 function setupGame() {
   const canvas = document.getElementById('jogoCanvas');
   const ctx = canvas.getContext('2d');
@@ -325,6 +325,10 @@ function setupGame() {
     height: 20,
     speed: 3
   };
+
+  // Variáveis para controle touch
+  let touchStartX = 0;
+  let touchEndX = 0;
   
   function drawPlayer() {
     ctx.fillStyle = '#ff6699';
@@ -404,7 +408,7 @@ function setupGame() {
     requestAnimationFrame(gameLoop);
   }
   
-  // Controles
+  // Controles para desktop
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') jogador.dx = jogador.speed;
     if (e.key === 'ArrowLeft') jogador.dx = -jogador.speed;
@@ -413,6 +417,69 @@ function setupGame() {
   document.addEventListener('keyup', (e) => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') jogador.dx = 0;
   });
+  
+  // Controles para touch (mobile)
+  canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    touchStartX = e.touches[0].clientX;
+  });
+  
+  canvas.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    touchEndX = e.touches[0].clientX;
+    
+    // Determinar direção do movimento
+    if (touchEndX < touchStartX - 10) { // Mover para esquerda
+      jogador.dx = -jogador.speed;
+    } else if (touchEndX > touchStartX + 10) { // Mover para direita
+      jogador.dx = jogador.speed;
+    } else {
+      jogador.dx = 0;
+    }
+  });
+  
+  canvas.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    jogador.dx = 0;
+  });
+  
+  // Controles com botões para mobile (opcional)
+  const leftBtn = document.createElement('button');
+  leftBtn.innerHTML = '&larr;';
+  leftBtn.style.position = 'fixed';
+  leftBtn.style.left = '20px';
+  leftBtn.style.bottom = '20px';
+  leftBtn.style.fontSize = '24px';
+  leftBtn.style.padding = '10px 20px';
+  leftBtn.style.borderRadius = '50%';
+  leftBtn.style.backgroundColor = 'var(--primary-color)';
+  leftBtn.style.color = 'white';
+  leftBtn.style.border = 'none';
+  leftBtn.style.zIndex = '1000';
+  
+  const rightBtn = document.createElement('button');
+  rightBtn.innerHTML = '&rarr;';
+  rightBtn.style.position = 'fixed';
+  rightBtn.style.right = '20px';
+  rightBtn.style.bottom = '20px';
+  rightBtn.style.fontSize = '24px';
+  rightBtn.style.padding = '10px 20px';
+  rightBtn.style.borderRadius = '50%';
+  rightBtn.style.backgroundColor = 'var(--primary-color)';
+  rightBtn.style.color = 'white';
+  rightBtn.style.border = 'none';
+  rightBtn.style.zIndex = '1000';
+  
+  // Adicionar botões apenas em mobile
+  if ('ontouchstart' in window) {
+    document.body.appendChild(leftBtn);
+    document.body.appendChild(rightBtn);
+    
+    leftBtn.addEventListener('touchstart', () => jogador.dx = -jogador.speed);
+    leftBtn.addEventListener('touchend', () => jogador.dx = 0);
+    rightBtn.addEventListener('touchstart', () => jogador.dx = jogador.speed);
+    rightBtn.addEventListener('touchend', () => jogador.dx = 0);
+  }
   
   // Botão iniciar
   document.getElementById('startGame').addEventListener('click', () => {
