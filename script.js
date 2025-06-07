@@ -380,7 +380,7 @@ function setupGame() {
       pontuacao++;
       document.getElementById('pontuacao').textContent = `Pontuação: ${pontuacao}`;
       
-      if (pontuacao >= 100) {
+      if (pontuacao >= 10) {
         showRomanticPopup();
         gameActive = false;
       } else {
