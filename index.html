@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Israel & Reanne - Nosso Amor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assents/icones/icon16.png" type="image/x-icon">
+  <link rel="icon" href="assents/icones/icon96.png" type="image/x-icon">
+</head>
+<body>
+  <!-- Tela de Questionário -->
+  <div id="tela-questionario">
+    <div class="questionario-container">
+      <h2><i class="fas fa-heart"></i> Questionário do Amor <i class="fas fa-heart"></i></h2>
+      <div id="quiz-container"></div>
+      <button id="verificarResposta">
+        <i class="fas fa-check"></i> Verificar
+      </button>
+    </div>
+  </div>
+
+  <!-- Tela Inicial -->
+  <div id="tela-inicial">
+    <div class="espelho">
+      <h1 class="titulo-inicial">Israel & Reanne</h1>
+      <p class="subtitulo-inicial">Desde 07/06/2018</p>
+      <button id="entrarSite">
+        <i class="fas fa-heart"></i> Entrar no nosso mundo <i class="fas fa-heart"></i>
+      </button>
+    </div>
+    <audio id="backgroundMusic" loop>
+      <source src="assents/audios/bg-music.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div id="conteudo-site">
+    <header>
+      <h1>Israel & Reanne</h1>
+      <p>Desde 07/06/2018</p>
+      <div class="header-image" style="background-image: url('assents/imagens/parte09.png')"></div>
+      <div class="heart-divider">
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+      </div>
+    </header>
+    
+    <main>
+      <section class="counter">
+        <h2>Estamos juntos há:</h2>
+        <p id="tempo"></p>
+        <div class="progress-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <p id="next-milestone"></p>
+      </section>
+
+      <section class="signos">
+        <h2>Compatibilidade dos Signos</h2>
+        <div class="signos-container">
+          <div class="signo-box">
+            <img src="assents/imagens/gemeos.png" alt="Gêmeos">
+            <p>Israel (Gêmeos)</p>
+          </div>
+          <div class="compatibilidade">
+            <i class="fas fa-heart"></i>
+            <p>100%</p>
+          </div>
+          <div class="signo-box">
+            <img src="assents/imagens/arquario.png" alt="Aquário">
+            <p>Reanne (Aquário)</p>
+          </div>
+        </div>
+        <p class="signos-descricao">Ambos signos do Ar, criativos, comunicativos e cheios de ideias! O amor de vocês é leve, inteligente e cheio de conexão mental.</p>
+      </section>
+
+      <section class="galeria">
+        <h2>Nossos Momentos</h2>
+        <div class="galeria-fotos">
+          <div class="foto-container" data-date="2018-06-07" data-title="Nosso Primeiro Dia">
+            <div class="galeria-foto" style="background-image: url('assents/imagens/parte01.png')"></div>
+            <div class="foto-legenda">Nosso Primeiro Dia - 07/06/2018</div>
+          </div>
+          <div class="foto-container" data-date="2018-07-15" data-title="Copa do Mundo">
+            <div class="galeria-foto" style="background-image: url('assents/imagens/parte02.png')"></div>
+            <div class="foto-legenda">Copa do Mundo - 15/07/2018</div>
+          </div>
+          <div class="foto-container" data-date="2018-09-22" data-title="Momentos de Brincadeiras">
+            <div class="galeria-foto" style="background-image: url('assents/imagens/parte03.png')"></div>
+            <div class="foto-legenda">Momentos de Brincadeiras - 22/09/2018</div>
+          </div>
+          <div class="foto-container" data-date="2019-06-12" data-title="Dia dos Namorados">
+            <div class="galeria-foto" style="background-image: url('assents/imagens/parte04.png')"></div>
+            <div class="foto-legenda">Dia dos Namorados - 12/06/2019</div>
+          </div>
+          <div class="foto-container" data-date="2020-03-08" data-title="Intervalo da Copa">
+            <div class="galeria-foto" style="background-image: url('assents/imagens/parte05.png')"></div>
+            <div class="foto-legenda">Intervalo da Copa - 08/03/2020</div>
+          </div>
+          <div class="foto-container" data-date="2021-11-20" data-title="Momento Descontraído">
+            <div class="galeria-foto" style="background-image: url('assents/imagens/parte06.png')"></div>
+            <div class="foto-legenda">Momento Descontraído - 20/11/2021</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal para zoom da foto -->
+      <div id="fotoModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+      </div>
+
+      <!-- Linha do Tempo -->
+      <section class="timeline-section">
+        <h2>Nossa Linha do Tempo</h2>
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <div class="timeline-date">07/06/2018</div>
+              <h3>Nosso Primeiro Dia</h3>
+              <p>O dia em que tudo começou. Nosso primeiro encontro e o início dessa linda história de amor.</p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <div class="timeline-date">15/07/2018</div>
+            <h3>Novas Conquistas</h3>
+              <p>Celebrando nossas conquistas e planejando um futuro ainda mais brilhante juntos.</p>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <div class="timeline-date">22/09/2018</div>
+          <h3>Noite Inesquecível</h3>
+            <p>Não foi sobre onde estávamos, mas sobre como nos sentimos. Foi ali que entendi que meu lugar era ao seu lado.</p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <div class="timeline-date">12/06/2019</div>
+              <h3>Primeiro Dia dos Namorados</h3>
+              <p>Celebrando nosso primeiro Dia dos Namorados com muito amor e carinho.</p>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <div class="timeline-date">08/03/2020</div>
+              <h3>Superando Desafios</h3>
+              <p>Juntos, enfrentamos os desafios que a vida nos apresentou e saímos mais fortes.</p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <div class="timeline-date">18/12/2022</div>
+              <h3>Copa do Mundo</h3>
+              <p>Assistindo aos jogos juntos e torcendo pelo nosso time, criando memórias inesquecíveis.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Poema Interativo -->
+      <section class="poema">
+        <h2>Poema do Nosso Amor</h2>
+        <div class="poema-container">
+          <div class="verso">No teu sorriso encontrei o meu lugar,</div>
+          <div class="verso">Um refúgio seguro, sem precisar falar.</div>
+          <div class="verso">Teus olhos são estrelas que me guiam,</div>
+          <div class="verso">E no teu abraço, o mundo se cala.</div>
+          <div class="verso">Juntos somos mais que dois,</div>
+          <div class="verso">Um amor puro, cheio de véus.</div>
+          <div class="verso">Cada dia contigo é uma bênção,</div>
+          <div class="verso">Nosso amor é eterno, sem condição.</div>
+        </div>
+      </section>
+
+      <!-- Lista de Coisas que Amo -->
+      <section class="lista-amor-section">
+        <h2>100 Coisas que Amo em Você</h2>
+        <div class="lista-amor">
+          <h3>Algumas das muitas razões pelas quais te amo</h3>
+          <ul id="coisas-que-amo">
+            <!-- Itens serão gerados dinamicamente pelo JavaScript -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contador de Beijos -->
+      <section class="contador-beijos-section">
+        <h2>Nosso Contador de Beijos</h2>
+        <div class="contador-beijos">
+          <h3>Quantos beijos já demos?</h3>
+          <div id="contador-numero">0</div>
+          <button class="btn-beijo" id="adicionar-beijo">+ Beijinho</button>
+          <button class="btn-beijo" id="adicionar-beijao">+ Beijão</button>
+          <button class="btn-beijo" id="reset-beijos">Resetar</button>
+        </div>
+      </section>
+
+      <!-- Jogo do Casal -->
+      <section class="jogo-casal">
+        <h2>Nosso Joguinho do Amor <i class="fas fa-heart"></i></h2>
+        <div class="jogo-container">
+          <canvas id="jogoCanvas" width="300" height="150"></canvas>
+          <div class="jogo-controls">
+            <button id="startGame"><i class="fas fa-play"></i> Começar</button>
+            <p id="pontuacao">Pontuação: 0</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Popup Romântico Aprimorado -->
+    <div id="romantic-popup" class="popup-container">
+      <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <h3 id="popup-title"><i class="fas fa-heart"></i> Para o Amor da Minha Vida <i class="fas fa-heart"></i></h3>
+        <p id="popup-text"></p>
+        <div class="popup-navigation">
+          <button class="popup-btn" id="prev-message" disabled><i class="fas fa-arrow-left"></i> Anterior</button>
+          <button class="popup-btn" id="next-message">Próxima <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <audio id="romantic-music">
+          <source src="assents/audios/romantic-music.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+
+    <footer>
+      <p>Feito com ❤️ por Israel para Reanne</p>
+      <p>© <span id="current-year"></span> - Nosso Amor Eterno</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
